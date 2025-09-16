@@ -42,7 +42,7 @@ def summarize_with_ai(program_text: str, party_name: str) -> Dict[str, str]:
     - De kernpunten van de partij weergeven
 
     Partijprogramma tekst:
-    {program_text[:8000]}  # Limit for API constraints
+        {program_text}  # Limit for API constraints
     
     Geef je antwoord in dit JSON formaat:
     {{
