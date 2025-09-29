@@ -171,19 +171,19 @@ PARTIES_2025 = [
     ),
     Party(
         id=9,
-        name="ChristenUnie",
-        color="#007CBA",
-        logo_url="/logos/cu.png",
-        current_vision="Nederland heeft veel goeds maar we verliezen onze morele kompas. Familie en gemeenschap staan onder druk. We moeten meer oog hebben voor kwetsbare mensen en toekomstige generaties.",
-        future_vision="Een Nederland gebaseerd op Bijbelse waarden: rechtvaardigheid, rentmeesterschap en naastenliefde. Bescherming van het leven, sterke families en duurzame samenleving.",
+        name="DENK",
+        color="#00A859",
+        logo_url="/logos/denk.png",
+        current_vision="Nederland heeft een probleem met discriminatie en ongelijke behandeling. Migranten en minderheden worden achtergesteld. Er is te weinig aandacht voor diversiteit en inclusie.",
+        future_vision="Een Nederland waar iedereen gelijke kansen krijgt, ongeacht afkomst. Een inclusieve samenleving die diversiteit omarmt en discriminatie actief bestrijdt.",
         key_policies=[
-            "Bescherming van het leven van wieg tot graf",
-            "Sterke gezinnen en gemeenschappen",
-            "Rentmeesterschap van de schepping",
-            "Zorg voor de zwakkeren in de samenleving",
-            "Eerlijk delen van welvaart"
+            "Bestrijding van discriminatie en racisme",
+            "Gelijke kansen voor alle Nederlanders",
+            "Erkenning van de multiculturele samenleving",
+            "Investeren in achterstandswijken",
+            "Internationale verbindingen en diplomatie"
         ],
-        website_url="https://www.christenunie.nl"
+        website_url="https://www.bewegingdenk.nl"
     ),
     Party(
         id=10,
@@ -219,6 +219,54 @@ PARTIES_2025 = [
     ),
     Party(
         id=12,
+        name="SGP",
+        color="#0066CC",
+        logo_url="/logos/sgp.png",
+        current_vision="Nederland verliest zijn christelijke wortels en morele kompas. Seculiere ideologieën ondermijnen de Bijbelse normen en waarden die ons land groot hebben gemaakt. Familie en gezag staan onder druk.",
+        future_vision="Een Nederland dat wordt geregeerd volgens Gods woord, waar Bijbelse normen en waarden leidend zijn. Respect voor gezag, sterke christelijke gezinnen en een samenleving gebaseerd op Gereformeerde beginselen.",
+        key_policies=[
+            "Handhaving van christelijke normen en waarden",
+            "Bescherming van het gezin en huwelijk",
+            "Zondag als rustdag beschermen",
+            "Christelijk onderwijs en opvoeding",
+            "Respect voor Gods schepping"
+        ],
+        website_url="https://www.sgp.nl"
+    ),
+    Party(
+        id=13,
+        name="ChristenUnie",
+        color="#007CBA",
+        logo_url="/logos/cu.png",
+        current_vision="Nederland heeft veel goeds maar we verliezen onze morele kompas. Familie en gemeenschap staan onder druk. We moeten meer oog hebben voor kwetsbare mensen en toekomstige generaties.",
+        future_vision="Een Nederland gebaseerd op Bijbelse waarden: rechtvaardigheid, rentmeesterschap en naastenliefde. Bescherming van het leven, sterke families en duurzame samenleving.",
+        key_policies=[
+            "Bescherming van het leven van wieg tot graf",
+            "Sterke gezinnen en gemeenschappen",
+            "Rentmeesterschap van de schepping",
+            "Zorg voor de zwakkeren in de samenleving",
+            "Eerlijk delen van welvaart"
+        ],
+        website_url="https://www.christenunie.nl"
+    ),
+    Party(
+        id=14,
+        name="Volt",
+        color="#502379",
+        logo_url="/logos/volt.png",
+        current_vision="Nederland kampt met versnipperde politiek en korte termijn denken. We missen een Europese visie en ambitieuze plannen voor de toekomst. Oude partijen bieden geen antwoord op moderne uitdagingen.",
+        future_vision="Een progressief Nederland dat voorop loopt in Europa. Ambitieus klimaatbeleid, digitale innovatie, Europese integratie en pragmatische oplossingen voor complexe problemen van de 21e eeuw.",
+        key_policies=[
+            "Europese federatie en integratie",
+            "Ambitieus klimaat- en energiebeleid",
+            "Digitalisering en innovatie",
+            "Evidence-based beleid en lange termijn denken",
+            "Gelijke kansen en inclusiviteit"
+        ],
+        website_url="https://www.volteuropa.org/nl"
+    ),
+    Party(
+        id=15,
         name="JA21",
         color="#2E8B57",
         logo_url="/logos/ja21.png",
@@ -232,54 +280,6 @@ PARTIES_2025 = [
             "Behoud van Nederlandse cultuur"
         ],
         website_url="https://www.ja21.nl"
-    ),
-    Party(
-        id=13,
-        name="DENK",
-        color="#00A859",
-        logo_url="/logos/denk.png",
-        current_vision="Nederland heeft een probleem met discriminatie en ongelijke behandeling. Migranten en minderheden worden achtergesteld. Er is te weinig aandacht voor diversiteit en inclusie.",
-        future_vision="Een Nederland waar iedereen gelijke kansen krijgt, ongeacht afkomst. Een inclusieve samenleving die diversiteit omarmt en discriminatie actief bestrijdt.",
-        key_policies=[
-            "Bestrijding van discriminatie en racisme",
-            "Gelijke kansen voor alle Nederlanders",
-            "Erkenning van de multiculturele samenleving",
-            "Investeren in achterstandswijken",
-            "Internationale verbindingen en diplomatie"
-        ],
-        website_url="https://www.bewegingdenk.nl"
-    ),
-    Party(
-        id=14,
-        name="50PLUS",
-        color="#800080",
-        logo_url="/logos/50plus.png",
-        current_vision="Ouderen worden vergeten in Nederland. Pensioenen worden gekort, zorgkosten stijgen en er is te weinig aandacht voor de behoeften van senioren. Leeftijdsdiscriminatie neemt toe.",
-        future_vision="Een Nederland waar ouderen gerespecteerd worden en kunnen genieten van hun pensioen. Betaalbare zorg, stabiele pensioenen en erkenning van de wijsheid en ervaring van senioren.",
-        key_policies=[
-            "Beschermen van pensioenen en AOW",
-            "Betaalbare zorg voor ouderen",
-            "Bestrijding van leeftijdsdiscriminatie",
-            "Meer aandacht voor eenzaamheid ouderen",
-            "Waardering voor ervaring en wijsheid"
-        ],
-        website_url="https://www.50pluspartij.nl"
-    ),
-    Party(
-        id=15,
-        name="BIJ1",
-        color="#FFD700",
-        logo_url="/logos/bij1.png",
-        current_vision="Nederland is een land vol institutioneel racisme en ongelijkheid. Zwarte, bruine en andere gemarginaliseerde groepen worden systematisch achtergesteld. Het koloniale verleden wordt ontkend.",
-        future_vision="Een Nederland zonder racisme en discriminatie. Echte gelijkheid en rechtvaardigheid voor alle mensen. Erkenning van het koloniale verleden en herstelbetalingen.",
-        key_policies=[
-            "Bestrijding van institutioneel racisme",
-            "Herstelbetalingen voor slavernijverleden",
-            "Radicale gelijkheid voor alle groepen",
-            "Dekolonisatie van het onderwijs",
-            "Inclusieve samenleving voor iedereen"
-        ],
-        website_url="https://www.bij1.org"
     )
 ]
 
