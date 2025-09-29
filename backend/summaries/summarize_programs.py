@@ -88,9 +88,23 @@ def summarize_with_ai(program_text: str, party_name: str) -> Dict[str, str]:
 
         }
 
+def save_individual_json(party_name: str, summary: Dict[str, str], output_dir: Path):
+    """Save individual party summary as JSON file."""
+    output_dir.mkdir(exist_ok=True)
+    json_filename = f"{party_name.lower()}_summary.json"
+    json_path = output_dir / json_filename
+    
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump({party_name: summary}, f, indent=2, ensure_ascii=False)
+    
+    print(f"  Saved individual JSON: {json_path}")
+
 def process_programs(programs_dir: Path, specific_files: List[str] = None) -> Dict[str, Dict[str, str]]:
     """Process PDF programs - either all in directory or specific files."""
     summaries = {}
+    
+    # Create output directory for individual JSON files
+    json_output_dir = Path("database")
     
     if specific_files:
         # Process only specified files
@@ -116,6 +130,9 @@ def process_programs(programs_dir: Path, specific_files: List[str] = None) -> Di
             
             summary = summarize_with_ai(program_text, party_name)
             summaries[party_name] = summary
+            
+            # Save individual JSON immediately after processing
+            save_individual_json(party_name, summary, json_output_dir)
             
             print(f"✓ Generated summary for {party_name}")
             print(f"  Current vision: {summary['current_vision'][:100]}...")
