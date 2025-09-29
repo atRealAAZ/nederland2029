@@ -9,7 +9,7 @@ export const Header = () => {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gradient">
-                Nederland 2029
+                Nederland 2025
               </h1>
               <p className="text-gray-600 text-sm">
                 Jouw gids voor de Tweede Kamerverkiezingen

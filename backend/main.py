@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 app = FastAPI(
-    title="Nederland 2029 API",
+    title="Nederland 2025 API",
     description="API for Dutch election decision app",
     version="1.0.0"
 )
@@ -38,22 +38,18 @@ PARTIES_2025 = [
         color="#F39200",
         logo_url="/logos/pvv.png",
         current_vision=(
-            "Nederland is te veel veranderd door massa-immigratie. "
-            "Onze cultuur en identiteit staan onder druk. "
-            "De EU bepaalt te veel over ons eigen land. "
-            "Asielzoekers krijgen voorrang boven Nederlanders."
+            "Volgens het partijprogramma ziet de Partij voor de Vrijheid (PVV) Nederland als een land dat momenteel onder druk staat door omvangrijke immigratie- en asielinstromen, vermeende islamisering en toenemende onveiligheid in wijken. "
+            "De PVV stelt dat Nederland één van de dichtstbevolkte landen van Europa is en dat de bevolkingsgroei de laatste decennia vrijwel uitsluitend door immigratie plaatsvindt. Het programma verwijst naar cijfers en voorbeelden: sinds 2010 zou bijna een half miljoen asielzoekers zijn toegekomen en de opvang van asielzoekers (inclusief Oekraïners) zou honderden miljoenen tot miljarden kosten. Volgens de partij leidt dit tot overlast en criminaliteit bij azc’s, druk op de openbare orde en spanning in stadsdelen. De PVV noemt daarnaast problematische integratie, meertaligheid in bepaalde buurten en zichtbare islamitische culturele kenmerken als signalen dat de Nederlandse identiteit en vrijheden onder druk staan; het programma spreekt expliciet over islamisering als een existentiële bedreiging en verwijst naar een breed ongenoegen bij delen van de bevolking. Economisch en sociaal ziet de PVV Nederland als een rijk land dat volgens het programma verkeerde prioriteiten stelt: veel geld zou naar asielopvang, internationale hulp, EU-bijdragen en klimaatbeleid gaan, waardoor de koopkracht, betaalbaarheid van wonen, energiekosten en zorg voor hardwerkende Nederlanders zouden lijden. Andere thema’s die volgens het programma problematisch zijn: een tekort aan betaalbare woningen (genoemd wordt een schatting van circa 400.000), wachttijden en toegankelijkheid in de zorg, personeelstekorten in de zorg, en bestuurlijke en juridische belemmeringen voor woningbouw en handhaving. Kortom: het programma schetst een Nederland dat volgens de PVV onveiliger, minder beheersbaar en economisch scheefgeprioriteerd is door immigratie, bestuurlijk beleid en internationale verplichtingen."
         ),
         future_vision=(
-            "Een Nederland voor Nederlanders, waar onze cultuur "
-            "en tradities centraal staan. Minder EU, meer nationale "
-            "soevereiniteit. Streng immigratie- en asielbeleid. Nederland eerst."
+            "Het PVV-programma schetst een toekomstbeeld van een Nederland waarin 'Nederlanders op 1' staan: een land met strikte migratie- en asielregels, sterke handhaving van orde en veiligheid, en prioriteit voor huisvesting en koopkracht van Nederlandse burgers. Centraal staat een onmiddellijk beleid om de asielinstroom te stoppen: grensweigering van asielzoekers, sluiting van asielzoekerscentra (azc’s), inzet van leger en technologie voor grensbewaking, stop op gezinshereniging en het afdwingen van een opt‑out in EU‑zaken rond asiel en immigratie. Het programma streeft naar massale uitzettingen van criminele vreemdelingen, het intrekken van tijdelijke verblijfsvergunningen (bijvoorbeeld voor grote groepen Syriërs) en beperkingen op dubbele nationaliteit en naturalisatie. Op veiligheid wil de PVV een 'zerotolerance'-aanpak: fors meer politie op straat (onder andere 10.000 extra agenten), strengere straffen, afschaffing van tbs voor bepaalde misdrijven, levenslange straffen daadwerkelijk levenslang en uitbreiding van gevangeniscapaciteit met sobere regimes en verplichte arbeid. Voor wonen wil de PVV een nationaal crisisplan: veel sneller bouwen (binnen- en buitenstedelijk), geen voorrang meer voor statushouders bij sociale huur, 10% verlaging van sociale huren en het behouden van hypotheekrenteaftrek. In de zorg wil de PVV het eigen risico afschaffen, tandartszorg in het basispakket opnemen, regionale ziekenhuizen beschermen en personeelstekorten aanpakken door minder bureaucratie, AI-ondersteuning en financiële prikkels voor meer werk. Financieel wil de partij middelen herverdelen van internationale uitgaven, klimaatprogramma’s en EU-betalingen naar Nederlandse prioriteiten. Het overall doel is een herwonnen controle over grenzen, veiligheid en publieke voorzieningen ten behoeve van Nederlandse inwoners."
         ),
         key_policies=[
-            "Stop massa-immigratie en asielinstroom",
-            "Nederland uit de EU",
-            "Beschermen Nederlandse cultuur en identiteit",
-            "Meer politie en veiligheid op straat",
-            "Lagere energierekening voor gewone Nederlanders"
+        "Totale asielstop en sluiting van azc’s: grensweigering van asielzoekers, stop op gezinshereniging, inzet leger voor bewaking",
+        "Strenge migratie- en naturalisatiepolitiek: uitzetting criminele vreemdelingen, beperking dubbele nationaliteit, remigratieregelingen",
+        "Hardere veiligheidsaanpak: 10.000 extra politieagenten, strengere straffen, afschaffing TBS voor bepaalde zaken en uitbreiding gevangeniscapaciteit",
+        "Huisvestingsprioriteit voor Nederlanders: geen voorrang voor statushouders, nationaal bouwcrisisplan, 10% verlaging sociale huren",
+        "Zorg- en koopkrachtmaatregelen: afschaffing eigen risico, tandarts in basispakket, bescherming regionale ziekenhuizen en maatregelen tegen zorgfraude"
         ],
         website_url="https://www.pvv.nl"
     ),

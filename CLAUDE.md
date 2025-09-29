@@ -1,4 +1,4 @@
-# Nederland 2029 - Dutch Election Decision App
+# Nederland 2025 - Dutch Election Decision App
 
 ## Project Overview
 A modern, anonymous web application that helps Dutch voters understand political parties' visions for the Tweede Kamerverkiezingen. The app presents each participating party's current view of the Netherlands and their vision for the country's future.

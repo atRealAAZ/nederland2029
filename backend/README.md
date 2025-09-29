@@ -1,4 +1,4 @@
-# Nederland 2029 - Backend API
+# Nederland 2025 - Backend API
 
 FastAPI backend for the Dutch election decision app.
 
