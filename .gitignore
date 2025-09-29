@@ -22,6 +22,7 @@ coverage.xml
 .mypy_cache
 .pytest_cache
 .hypothesis
+backend/summaries/programs/
 
 # IDEs
 .vscode/
