@@ -1,5 +1,53 @@
 import { useEffect } from 'react'
 
+// Helper function to format long text into readable paragraphs
+const formatVisionText = (text: string): string[] => {
+  // Split on periods followed by space and capital letter (sentence boundaries)
+  // But keep sentences together in logical paragraph chunks
+  const sentences = text.split(/\.\s+(?=[A-Z])/);
+  
+  // Group sentences into paragraphs of 2-3 sentences each
+  const paragraphs: string[] = [];
+  let currentParagraph = '';
+  let sentenceCount = 0;
+  
+  for (let i = 0; i < sentences.length; i++) {
+    const sentence = sentences[i];
+    
+    if (currentParagraph) {
+      currentParagraph += '. ' + sentence;
+    } else {
+      currentParagraph = sentence;
+    }
+    
+    sentenceCount++;
+    
+    // Create a new paragraph after 2-3 sentences, or if sentence is very long
+    const shouldBreak = sentenceCount >= 2 && 
+      (sentenceCount >= 3 || sentence.length > 150 || i === sentences.length - 1);
+    
+    if (shouldBreak) {
+      // Add final period if not present
+      if (!currentParagraph.endsWith('.')) {
+        currentParagraph += '.';
+      }
+      paragraphs.push(currentParagraph.trim());
+      currentParagraph = '';
+      sentenceCount = 0;
+    }
+  }
+  
+  // Add any remaining content
+  if (currentParagraph.trim()) {
+    if (!currentParagraph.endsWith('.')) {
+      currentParagraph += '.';
+    }
+    paragraphs.push(currentParagraph.trim());
+  }
+  
+  return paragraphs.filter(p => p.length > 0);
+}
+
 interface Party {
   id: number
   name: string
@@ -94,9 +142,13 @@ export const PartyModal = ({ party, onClose }: PartyModalProps) => {
                 </h3>
               </div>
               <div className="bg-gray-50/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  {party.current_vision}
-                </p>
+                <div className="text-gray-700 leading-relaxed text-lg space-y-4">
+                  {formatVisionText(party.current_vision).map((paragraph, index) => (
+                    <p key={index} className="text-gray-700 leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
             
@@ -108,9 +160,13 @@ export const PartyModal = ({ party, onClose }: PartyModalProps) => {
                 </h3>
               </div>
               <div className="bg-accent-50/80 backdrop-blur-sm rounded-2xl p-6 border border-accent-100">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  {party.future_vision}
-                </p>
+                <div className="text-gray-700 leading-relaxed text-lg space-y-4">
+                  {formatVisionText(party.future_vision).map((paragraph, index) => (
+                    <p key={index} className="text-gray-700 leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

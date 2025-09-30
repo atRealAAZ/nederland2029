@@ -158,11 +158,11 @@ def save_to_database(summaries: Dict[str, Dict[str, str]]):
 
 def main():
     # TEST FILES - modify this list to test specific files
-    TEST_FILES = ["pvv.pdf", 'vvd.pdf']  # Add/remove files here for testing
-    TEST_FILES = [
-        "bbb.pdf", "cda.pdf", "cu.pdf", "d66.pdf", "denk23.pdf", "fvd.pdf", "gl-pvda.pdf", "ja21.pdf", "nsc.pdf", "pvdd.pdf", "pvv.pdf", "sgp.pdf", "sp.pdf"
-        "volt.pdf", "vvd.pdf"
-    ]
+    TEST_FILES = ["sgp.pdf", "pvv.pdf"]  # Add/remove files here for testing
+    # TEST_FILES = [
+    #     "bbb.pdf", "cda.pdf", "cu.pdf", "d66.pdf", "denk23.pdf", "fvd.pdf", "gl-pvda.pdf", "ja21.pdf", "nsc.pdf", "pvdd.pdf", "pvv.pdf", "sgp.pdf", "sp.pdf"
+    #     "volt.pdf", "vvd.pdf"
+    # ]
     parser = argparse.ArgumentParser(description="Generate AI summaries from party programs")
     parser.add_argument("--programs-dir", default="summaries/programs", help="Directory containing PDF files")
     parser.add_argument("--files", nargs="+", help="Specific PDF files to process (instead of all files)")
