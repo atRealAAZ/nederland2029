@@ -71,7 +71,7 @@ def summarize_with_ai(program_text: str, party_name: str) -> Dict[str, str]:
     # Use your preferred AI service here - fixed model name
     print(prompt)
     response = client.chat.completions.create(
-        model="gpt-5-mini",  # Fixed: gpt-5-mini doesn't exist
+        model="gpt-5-mini",  
         messages=[{"role": "user", "content": prompt}]
     )
     
@@ -158,8 +158,11 @@ def save_to_database(summaries: Dict[str, Dict[str, str]]):
 
 def main():
     # TEST FILES - modify this list to test specific files
-    TEST_FILES = ["pvv.pdf"]  # Add/remove files here for testing
-    
+    TEST_FILES = ["pvv.pdf", 'vvd.pdf']  # Add/remove files here for testing
+    TEST_FILES = [
+        "bbb.pdf", "cda.pdf", "cu.pdf", "d66.pdf", "denk23.pdf", "fvd.pdf", "gl-pvda.pdf", "ja21.pdf", "nsc.pdf", "pvdd.pdf", "pvv.pdf", "sgp.pdf", "sp.pdf"
+        "volt.pdf", "vvd.pdf"
+    ]
     parser = argparse.ArgumentParser(description="Generate AI summaries from party programs")
     parser.add_argument("--programs-dir", default="summaries/programs", help="Directory containing PDF files")
     parser.add_argument("--files", nargs="+", help="Specific PDF files to process (instead of all files)")

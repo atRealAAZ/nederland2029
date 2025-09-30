@@ -1,4 +1,6 @@
 # ruff: noqa: E501
+import json
+import os
 from typing import List
 
 from fastapi import FastAPI
@@ -290,15 +292,55 @@ async def health_check() -> dict[str, str]:
     return {"status": "healthy"}
 
 
+def load_party_data_from_database(party_name: str) -> dict | None:
+    """Load party data from database JSON file if it exists."""
+    database_dir = os.path.join(os.path.dirname(__file__), "database")
+    file_path = os.path.join(database_dir, f"{party_name.lower()}_summary.json")
+    
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                # The JSON structure is {"PARTY_NAME": {...}}
+                party_key = list(data.keys())[0]
+                return data[party_key]
+        except (json.JSONDecodeError, IndexError, KeyError):
+            return None
+    return None
+
+
+def get_party_with_database_fallback(hardcoded_party: Party) -> Party:
+    """Get party data from database file, fallback to hardcoded data."""
+    database_data = load_party_data_from_database(hardcoded_party.name)
+    
+    if database_data:
+        # Update party with database data while keeping other fields
+        return Party(
+            id=hardcoded_party.id,
+            name=hardcoded_party.name,
+            color=hardcoded_party.color,
+            logo_url=hardcoded_party.logo_url,
+            current_vision=database_data.get("current_vision", hardcoded_party.current_vision),
+            future_vision=database_data.get("future_vision", hardcoded_party.future_vision),
+            key_policies=database_data.get("key_policies", hardcoded_party.key_policies),
+            website_url=hardcoded_party.website_url
+        )
+    
+    return hardcoded_party
+
+
 @app.get("/api/parties", response_model=List[Party])
 async def get_parties() -> List[Party]:
-    return PARTIES_2025
+    """Get all parties with database data when available, fallback to hardcoded data."""
+    return [get_party_with_database_fallback(party) for party in PARTIES_2025]
 
 
 @app.get("/api/parties/{party_id}", response_model=Party)
 async def get_party(party_id: int) -> Party:
-    party = next((p for p in PARTIES_2025 if p.id == party_id), None)
-    if party is None:
+    """Get specific party with database data when available, fallback to hardcoded data."""
+    hardcoded_party = next((p for p in PARTIES_2025 if p.id == party_id), None)
+    if hardcoded_party is None:
         from fastapi import HTTPException
         raise HTTPException(status_code=404, detail="Party not found")
-    return party
+    
+    return get_party_with_database_fallback(hardcoded_party)
