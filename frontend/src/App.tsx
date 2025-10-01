@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { PartyCard } from './components/PartyCard'
 import { Header } from './components/Header'
 import { PartyModal } from './components/PartyModal'
@@ -20,24 +20,33 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    fetchParties()
-  }, [])
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+    return shuffled
+  }
 
-  const fetchParties = async () => {
+  const fetchParties = useCallback(async () => {
     try {
       const response = await fetch('http://localhost:8000/api/parties')
       if (!response.ok) {
         throw new Error('Failed to fetch parties')
       }
       const data = await response.json()
-      setParties(data)
+      setParties(shuffleArray(data))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error')
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    fetchParties()
+  }, [fetchParties])
 
   const openPartyModal = (party: Party) => {
     setSelectedParty(party)
@@ -155,14 +164,14 @@ function App() {
         <div className="container mx-auto px-6 py-8">
           <div className="text-center text-gray-600">
             <p>
-              Copyright 2025. Gemaakt door{' '}
+              ©2025. Gemaakt door{' '}
               <a 
                 href="https://www.linkedin.com/in/arthur-zwartsenberg-46683288/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-anthropic-orange hover:text-orange-600 font-medium transition-colors duration-200"
               >
-                Arthur Zwartsenberg
+                Arthur Zwartsenberg.
               </a>
             </p>
           </div>
