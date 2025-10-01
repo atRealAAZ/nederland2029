@@ -3,7 +3,10 @@ import { PartyCard } from './components/PartyCard'
 import { Header } from './components/Header'
 import { PartyModal } from './components/PartyModal'
 
-interface Party {
+// const BACKEND_URL = 'http://localhost:8000'
+const BACKEND_URL = 'https://api.nederland2025.app'
+
+interface Party { 
   id: number
   name: string
   color: string
@@ -31,7 +34,7 @@ function App() {
 
   const fetchParties = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/parties')
+      const response = await fetch(`${BACKEND_URL}/api/parties`)
       if (!response.ok) {
         throw new Error('Failed to fetch parties')
       }
