@@ -14,9 +14,11 @@ export const Header = () => {
       <div className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-anthropic-orange rounded-xl flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-lg">NL</span>
-            </div>
+            <img 
+              src="/NL25.png" 
+              alt="Nederland 2025 Logo" 
+              className="w-12 h-12 rounded-xl shadow-md"
+            />
             <div>
               <h1 className="text-2xl font-bold text-gradient">
                 Nederland 2025
