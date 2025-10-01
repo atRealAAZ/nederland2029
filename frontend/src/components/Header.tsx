@@ -1,4 +1,14 @@
 export const Header = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   return (
     <header className="bg-white shadow-sm border-b border-gray-200">
       <div className="container mx-auto px-6 py-6">
@@ -19,18 +29,18 @@ export const Header = () => {
           
           <div className="hidden md:flex items-center space-x-6">
             <nav className="flex space-x-6">
-              <a 
-                href="#partijen" 
+              <button 
+                onClick={() => scrollToSection('partijen')}
                 className="text-gray-600 hover:text-anthropic-orange font-medium transition-colors duration-200"
               >
                 Partijen
-              </a>
-              <a 
-                href="#over" 
+              </button>
+              <button 
+                onClick={() => scrollToSection('over')}
                 className="text-gray-600 hover:text-anthropic-orange font-medium transition-colors duration-200"
               >
                 Over
-              </a>
+              </button>
             </nav>
           </div>
         </div>

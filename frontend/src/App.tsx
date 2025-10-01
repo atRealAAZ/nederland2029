@@ -128,7 +128,7 @@ function App() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div id="partijen" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {parties.map((party, index) => (
             <div 
               key={party.id}
@@ -150,6 +150,24 @@ function App() {
           onClose={closePartyModal}
         />
       )}
+      
+      <footer id="over" className="bg-white border-t border-gray-200 mt-20">
+        <div className="container mx-auto px-6 py-8">
+          <div className="text-center text-gray-600">
+            <p>
+              Copyright 2025. Gemaakt door{' '}
+              <a 
+                href="https://www.linkedin.com/in/arthur-zwartsenberg-46683288/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-anthropic-orange hover:text-orange-600 font-medium transition-colors duration-200"
+              >
+                Arthur Zwartsenberg
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
