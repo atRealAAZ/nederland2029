@@ -304,7 +304,7 @@ def load_party_data_from_database(party_name: str) -> dict | None:
         "BBB": "bbb",
         "CDA": "cda",
         "SP": "sp",
-        "DENK": "denk23",
+        "DENK": "denk",
         "Partij voor de Dieren": "pvdd",
         "FVD": "fvd",
         "SGP": "sgp",
