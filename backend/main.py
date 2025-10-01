@@ -18,6 +18,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000", 
         "http://localhost:5173", 
+        "https://*.vercel.app",   
         "https://nederland2025.app",
         "https://www.nederland2025.app",
     ],
