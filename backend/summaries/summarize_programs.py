@@ -40,9 +40,9 @@ def summarize_with_ai(program_text: str, party_name: str) -> Dict[str, str]:
     """Use AI to generate current_vision and future_vision summaries."""
     
     # Limit text to avoid API constraints (roughly 8000 tokens = ~32000 characters)
-    max_chars = 30000
-    if len(program_text) > max_chars:
-        program_text = program_text[:max_chars] + "...\n[Text truncated for API limits]"
+    # max_chars = 30000
+    # if len(program_text) > max_chars:
+    #     program_text = program_text[:max_chars] + "...\n[Text truncated for API limits]"
     
     prompt = f"""
     Analyseer het volgende partijprogramma van {party_name} en geef twee samenvattingen:
@@ -158,7 +158,7 @@ def save_to_database(summaries: Dict[str, Dict[str, str]]):
 
 def main():
     # TEST FILES - modify this list to test specific files
-    TEST_FILES = ["sgp.pdf", "pvv.pdf"]  # Add/remove files here for testing
+    TEST_FILES = ["sp.pdf", "volt.pdf"]  # Add/remove files here for testing
     # TEST_FILES = [
     #     "bbb.pdf", "cda.pdf", "cu.pdf", "d66.pdf", "denk23.pdf", "fvd.pdf", "gl-pvda.pdf", "ja21.pdf", "nsc.pdf", "pvdd.pdf", "pvv.pdf", "sgp.pdf", "sp.pdf"
     #     "volt.pdf", "vvd.pdf"
