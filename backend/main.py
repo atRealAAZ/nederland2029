@@ -294,16 +294,50 @@ async def health_check() -> dict[str, str]:
 
 def load_party_data_from_database(party_name: str) -> dict | None:
     """Load party data from database JSON file if it exists."""
+    # Map party names to their JSON file names
+    party_file_mapping = {
+        "PVV": "pvv",
+        "GroenLinks-PvdA": "gl",
+        "VVD": "vvd",
+        "NSC": "nsc",
+        "D66": "d66",
+        "BBB": "bbb",
+        "CDA": "cda",
+        "SP": "sp",
+        "DENK": "denk23",
+        "Partij voor de Dieren": "pvdd",
+        "FVD": "fvd",
+        "SGP": "sgp",
+        "ChristenUnie": "cu",
+        "Volt": "volt",
+        "JA21": "ja21"
+    }
+    
     database_dir = os.path.join(os.path.dirname(__file__), "database")
-    file_path = os.path.join(database_dir, f"{party_name.lower()}_summary.json")
+    file_name = party_file_mapping.get(party_name, party_name.lower())
+    file_path = os.path.join(database_dir, f"{file_name}_summary.json")
     
     if os.path.exists(file_path):
         try:
             with open(file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # The JSON structure is {"PARTY_NAME": {...}}
-                party_key = list(data.keys())[0]
-                return data[party_key]
+                # The JSON structure is {"PARTY_NAME": {...}} or direct fields
+                if isinstance(data, dict):
+                    # Check if it has nested structure with party name as key
+                    if len(data) == 1:
+                        party_key = list(data.keys())[0]
+                        # Check if the key matches the party in some way
+                        if (party_key.upper() in party_name.upper() or 
+                            party_name.upper() in party_key.upper() or
+                            any(part.upper() in party_key.upper() for part in party_name.split("-")) or
+                            party_key.upper() == "GL" and "GroenLinks" in party_name or
+                            party_key.upper() == "PVDD" and "Partij voor de Dieren" in party_name or
+                            party_key.upper() == "CU" and "ChristenUnie" in party_name):
+                            return data[party_key]
+                    # Check if it has direct fields
+                    elif "current_vision" in data or "future_vision" in data:
+                        return data
+                return None
         except (json.JSONDecodeError, IndexError, KeyError):
             return None
     return None
