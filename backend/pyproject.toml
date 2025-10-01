@@ -1,5 +1,4 @@
 [tool.poetry]
-package-mode = false
 name = "nederland2029-backend"
 version = "0.1.0"
 description = "Backend API for Dutch election decision app"
